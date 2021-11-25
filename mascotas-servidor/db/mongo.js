@@ -1,8 +1,6 @@
 const { DB_URI } = require('../utils/config')
 const { connect } = require('mongoose');
 
-//const { connect } = mongoose;
-
 const conectarBD = async () => {
 
     connect(DB_URI)
