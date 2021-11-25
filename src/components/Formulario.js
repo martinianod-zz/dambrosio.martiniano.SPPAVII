@@ -52,8 +52,8 @@ const Formulario = ({ createMascota, updateMascota, mascotaEdit, setMascotaEdit,
             createMascota(form);
         }
 
-        handleReset();
-
+        //handleReset();
+        setform(initialForm);
     }
 
     const handleReset = (e) => {
@@ -63,8 +63,8 @@ const Formulario = ({ createMascota, updateMascota, mascotaEdit, setMascotaEdit,
     }
 
     return (
-        <div>
-            <h2>{id ? "Modificar" : "Agregar"} Mascota</h2>
+        <div class="container">
+            <h2 class="subtitle">{id ? "Modificar" : "Agregar"} Mascota</h2>
             <form onSubmit={handleSubmit}>
                 <div className="field">
                     <label className="label">Nombre</label>
@@ -107,8 +107,8 @@ const Formulario = ({ createMascota, updateMascota, mascotaEdit, setMascotaEdit,
                                     tiposMascotas.map((tipo) => (
                                         <option
                                             key={tipo.id}
-                                            value={tipo.descripcion}
-                                        >{tipo.descripcion}</option>
+                                            value={tipo.tipo}
+                                        >{tipo.tipo}</option>
                                     ))
                                 }
 
@@ -145,7 +145,7 @@ const Formulario = ({ createMascota, updateMascota, mascotaEdit, setMascotaEdit,
 
                 <div className="field is-grouped">
                     <div className="control">
-                        <button className="button is-link">Agregar</button>
+                        <button className="button is-link">{id ? "Modificar" : "Agregar"}</button>
                     </div>
                     <div className="control">
                         <button className="button is-link is-light" onClick={handleReset}>Limpiar</button>

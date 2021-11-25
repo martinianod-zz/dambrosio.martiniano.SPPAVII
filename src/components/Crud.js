@@ -3,8 +3,8 @@ import Formulario from './Formulario';
 import Loader from './Loader';
 import Tabla from './Tabla';
 
-const URL = "http://localhost:5000/mascotas/";
-const URL_TIPOS = "http://localhost:5000/tipos";
+const URL = "http://localhost:5000/api/mascotas/";
+const URL_TIPOS = "http://localhost:5000/api/tipos-mascotas";
 
 const Crud = () => {
 
@@ -16,6 +16,8 @@ const Crud = () => {
 
     const [isLoading, setIsLoading] = useState(false);
 
+    const token = JSON.parse(localStorage.getItem("user")).token;
+
     useEffect(() => {
 
         const getMascotas = async (url) => {
@@ -23,7 +25,15 @@ const Crud = () => {
 
                 setIsLoading(true);
 
-                const res = await fetch(url);
+                console.log(token)
+
+                const res = await fetch(url, {
+                    method: 'GET',
+                    headers: new Headers({
+                        'Authorization': 'Bearer ' + token,
+                        'Content-Type': 'application/json'
+                    }),
+                });
                 const data = await res.json();
                 data.forEach((mascota) => {
                     setMascotas((mascotas) => {
@@ -62,11 +72,14 @@ const Crud = () => {
 
         setIsLoading(true);
 
+        console.log(nuevaMascota)
+
         fetch(URL, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: new Headers({
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json'
+            }),
             body: JSON.stringify(nuevaMascota),
         })
             .then(res => res.json())
@@ -90,9 +103,10 @@ const Crud = () => {
 
         fetch(URL + mascotaUpdated.id, {
             method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: new Headers({
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json'
+            }),
             body: JSON.stringify(mascotaUpdated),
         })
             .then(res => res.json())
@@ -118,6 +132,10 @@ const Crud = () => {
 
             fetch(URL + id, {
                 method: "DELETE",
+                headers: new Headers({
+                    'Authorization': 'Bearer ' + token,
+                    'Content-Type': 'application/json'
+                }),
             })
                 .then(res => {
 
@@ -147,6 +165,8 @@ const Crud = () => {
                 mascotaEdit={mascotaEdit}
                 setMascotaEdit={setMascotaEdit}
             />
+
+            <br /><br />
 
             {
 

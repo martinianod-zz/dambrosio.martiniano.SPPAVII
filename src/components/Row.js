@@ -10,9 +10,11 @@ const Row = ({ mascota, setMascotaEdit, deleteMascota }) => {
             <td>{nombre}</td>
             <td>{tipo}</td>
             <td>
-                <Link to={`/detalle/${id}`} > Detalle </Link>
-                <button onClick={() => { setMascotaEdit(mascota) }}>Update</button>
-                <button onClick={() => { deleteMascota(id) }}>Delete</button>
+                <div class="buttons">
+                    <Link className="button is-info" to={`/detalle/${id}`} > Detalle </Link>
+                    <button className="button is-warning" onClick={() => { setMascotaEdit(mascota) }}>Update</button>
+                    <button className="button is-danger" onClick={() => { deleteMascota(id) }}>Delete</button>
+                </div>
             </td>
         </tr>
     )

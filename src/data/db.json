@@ -25,7 +25,7 @@
     {
       "id": 1,
       "nombre": "Bobby",
-      "edad": 9,
+      "edad": "17",
       "tipo": "Perro",
       "vacunado": true,
       "observaciones": "Bobby se porta muy bien esta contento siempre"
@@ -34,16 +34,16 @@
       "id": 2,
       "nombre": "Fido",
       "edad": 3,
-      "tipo": "Gato",
+      "tipo": "Reptil",
       "vacunado": true,
       "observaciones": "Es un gato muy peludo"
     },
     {
       "id": 3,
       "nombre": "Lolo",
-      "edad": 2,
+      "edad": "3",
       "tipo": "Roedor",
-      "vacunado": false,
+      "vacunado": true,
       "observaciones": "Cuidado que muerde"
     },
     {
@@ -61,6 +61,22 @@
       "edad": "2",
       "vacunado": true,
       "observaciones": "mimoso"
+    },
+    {
+      "id": 6,
+      "nombre": "pocho",
+      "tipo": "Gato",
+      "edad": "7",
+      "vacunado": false,
+      "observaciones": "buenito"
+    },
+    {
+      "id": 7,
+      "nombre": "carla",
+      "tipo": "Reptil",
+      "edad": "45",
+      "vacunado": true,
+      "observaciones": "viejita"
     }
   ]
 }

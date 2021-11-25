@@ -4,8 +4,8 @@ const Header = () => {
     return (
         <div>
             <header>
-            <h1>CRUD Mascotas</h1>
-        </header>
+                <h1 class="title">CRUD Mascotas</h1>
+            </header>
         </div>
     )
 }
