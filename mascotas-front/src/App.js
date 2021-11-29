@@ -17,9 +17,9 @@ function App() {
         <Route exact path="/home" component={Home} />
         <Route exact path="/signup" component={SignUp} />
         <Route path="/detalle/:id" component={Detalle} />
-        <Route path="*" />
-        <Error404 />
-        <Route />
+        <Route path="*">
+          <Error404 />
+        </Route>
       </Switch>
     </Router>
   );
