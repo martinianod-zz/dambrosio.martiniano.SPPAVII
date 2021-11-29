@@ -13,10 +13,10 @@ const Formulario = ({ createMascota, updateMascota, mascotaEdit, setMascotaEdit,
 
     const [form, setform] = useState(initialForm);
 
-
     const { id, nombre, tipo, edad, observaciones, vacunado } = form;
 
     useEffect(() => {
+
         if (mascotaEdit) {
             setform(mascotaEdit);
         }
@@ -33,16 +33,13 @@ const Formulario = ({ createMascota, updateMascota, mascotaEdit, setMascotaEdit,
                 return { ...form, [e.target.name]: e.target.value };
             });
         }
-
-
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('enviandoo...');
 
         if (!nombre || !tipo || !edad) {
-            alert("Faltan datos !!!");
+            alert("Faltan datos: nombre , tipo y edad no pueden ser nulos");
             return;
         }
 
@@ -52,7 +49,6 @@ const Formulario = ({ createMascota, updateMascota, mascotaEdit, setMascotaEdit,
             createMascota(form);
         }
 
-        //handleReset();
         setform(initialForm);
     }
 
@@ -103,6 +99,13 @@ const Formulario = ({ createMascota, updateMascota, mascotaEdit, setMascotaEdit,
                     <div className="control">
                         <div className="select">
                             <select name="tipo" onChange={handleChange}>
+                                {
+                                    !form.tipo ? <option value="none" selected disabled hidden>Seleccione un tipo de Mascota</option> :
+                                        <option
+                                            selected
+                                            key={tiposMascotas.find(tipo => tipo.tipo === form.tipo).id}
+                                            value={form.tipo}>{form.tipo}</option>
+                                }
                                 {
                                     tiposMascotas.map((tipo) => (
                                         <option

@@ -22,7 +22,7 @@ usersRouter.post('/', async (req, res, next) => {
         const { username, password } = req.body;
 
         if (password.length !== 6) {
-            return next({ name: "ValidationError", message: "No tiene 6 caracteres" });
+            return next({ name: "ValidationError", message: "La contraseña no tiene 6 caracteres" });
         }
 
         const saltRounds = 10;

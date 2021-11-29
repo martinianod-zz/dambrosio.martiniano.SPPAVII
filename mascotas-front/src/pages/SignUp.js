@@ -21,7 +21,6 @@ const SignUp = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('enviandoo...');
 
         if (username.length === 0) {
             alert('el usuario no puede estar vacio')
@@ -44,7 +43,8 @@ const SignUp = () => {
         if (data.username) {
             alert('usuario registardo');
             history.push("/login");
-
+        } else {
+            alert(data.message);
         }
     }
 
@@ -52,6 +52,11 @@ const SignUp = () => {
         setUser((form) => {
             return { ...form, [e.target.name]: e.target.value };
         });
+    }
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        history.push("/login");
     }
 
     return (
@@ -89,9 +94,12 @@ const SignUp = () => {
                                         </span>
                                     </div>
                                 </div>
-                                <div className="field">
+                                <div className="field buttons">
                                     <button className="button is-success control">
                                         Register
+                                    </button>
+                                    <button onClick={handleLogin} className="button is-info control">
+                                        Login
                                     </button>
                                 </div>
                             </form>

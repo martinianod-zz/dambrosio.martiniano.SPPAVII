@@ -32,7 +32,7 @@ const Detalle = () => {
 
     return (
         <div>
-            <Link to="/">Volver</Link>
+            <Link to="/home">Volver</Link>
             <h1>nombre: {nombre}</h1>
             <p>edad: {edad}</p>
             <p>tipo: <span>{tipo}</span>  </p>

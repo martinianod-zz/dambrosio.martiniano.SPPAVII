@@ -25,8 +25,6 @@ const Crud = () => {
 
                 setIsLoading(true);
 
-                console.log(token)
-
                 const res = await fetch(url, {
                     method: 'GET',
                     headers: new Headers({
@@ -72,8 +70,6 @@ const Crud = () => {
 
         setIsLoading(true);
 
-        console.log(nuevaMascota)
-
         fetch(URL, {
             method: "POST",
             headers: new Headers({
@@ -97,20 +93,21 @@ const Crud = () => {
 
     }
 
-    const updateMascota = (mascotaUpdated) => {
+    const updateMascota = (mascotaToUpdate) => {
 
         setIsLoading(true);
 
-        fetch(URL + mascotaUpdated.id, {
+        fetch(URL + mascotaToUpdate.id, {
             method: "PUT",
             headers: new Headers({
                 'Authorization': 'Bearer ' + token,
                 'Content-Type': 'application/json'
             }),
-            body: JSON.stringify(mascotaUpdated),
+            body: JSON.stringify(mascotaToUpdate),
         })
             .then(res => res.json())
             .then(mascotaUpdated => {
+
                 setMascotas(
                     (mascotas) => {
 

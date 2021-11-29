@@ -19,7 +19,6 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('enviandoo...');
 
         const response = await fetch(API_URL, {
             method: 'POST',
@@ -34,8 +33,14 @@ const Login = () => {
         if (data.token) {
             localStorage.setItem("user", JSON.stringify(data));
 
-            history.push("/");
+            history.push("/home");
         }
+
+    }
+
+    const handleRegistrarse = async (e) => {
+        e.preventDefault();
+        history.push("/signup");
 
     }
 
@@ -71,9 +76,12 @@ const Login = () => {
                                         </span>
                                     </div>
                                 </div>
-                                <div className="field">
+                                <div className="field buttons">
                                     <button className="button is-success control">
                                         Login
+                                    </button>
+                                    <button onClick={handleRegistrarse} className="button is-info control">
+                                        Registrarse
                                     </button>
                                 </div>
                             </form>

@@ -68,7 +68,7 @@ const createMascota = (body, res, next) => {
 
 const updateMascota = (id, body, res, next) => {
 
-    const { nombre, edad } = body;
+    const { nombre, edad, tipo, vacunado, observaciones } = body;
 
     const infoMascota = {};
 
@@ -78,6 +78,18 @@ const updateMascota = (id, body, res, next) => {
 
     if (edad) {
         infoMascota.edad = edad
+    }
+
+    if (tipo) {
+        infoMascota.tipo = tipo
+    }
+
+    if (vacunado) {
+        infoMascota.vacunado = vacunado
+    }
+
+    if (tipo) {
+        infoMascota.observaciones = observaciones
     }
 
     Mascota.findByIdAndUpdate(id, infoMascota, { new: true })
