@@ -34,6 +34,8 @@ const Login = () => {
             localStorage.setItem("user", JSON.stringify(data));
 
             history.push("/home");
+        } else {
+            alert(data.message);
         }
 
     }
