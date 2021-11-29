@@ -14,15 +14,15 @@ const Header = () => {
     return (
         <div>
             <header>
-                <nav class="navbar" role="navigation" aria-label="main navigation">
-                    <h1 class="title">CRUD Mascotas</h1>
-                    <div class="navbar-end">
-                        <div class="navbar-item">
-                            <div class="buttons">
-                                <a onClick={handleLogout} class="button is-primary">
+                <nav className="navbar" role="navigation" aria-label="main navigation">
+                    <h1 className="title">CRUD Mascotas</h1>
+                    <div className="navbar-end">
+                        <div className="navbar-item">
+                            <div className="buttons">
+                                <button onClick={handleLogout} className="button is-primary">
                                     <strong>Cerrar Sesion
                                     </strong>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>

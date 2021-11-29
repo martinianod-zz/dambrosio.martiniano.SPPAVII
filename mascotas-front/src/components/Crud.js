@@ -64,7 +64,7 @@ const Crud = () => {
 
         getTiposMascotas(URL_TIPOS);
 
-    }, [])
+    }, [token])
 
     const createMascota = (nuevaMascota) => {
 
@@ -85,6 +85,9 @@ const Crud = () => {
                         return [...mascotas, nuevaMascota];
                     }
                 )
+            })
+            .catch(err => {
+                alert(err.message)
             })
             .finally(() => {
                 setIsLoading(false);

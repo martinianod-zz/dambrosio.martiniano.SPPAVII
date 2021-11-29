@@ -59,8 +59,8 @@ const Formulario = ({ createMascota, updateMascota, mascotaEdit, setMascotaEdit,
     }
 
     return (
-        <div class="container">
-            <h2 class="subtitle">{id ? "Modificar" : "Agregar"} Mascota</h2>
+        <div className="container">
+            <h2 className="subtitle">{id ? "Modificar" : "Agregar"} Mascota</h2>
             <form onSubmit={handleSubmit}>
                 <div className="field">
                     <label className="label">Nombre</label>
@@ -102,7 +102,6 @@ const Formulario = ({ createMascota, updateMascota, mascotaEdit, setMascotaEdit,
                                 {
                                     !form.tipo ? <option value="none" selected disabled hidden>Seleccione un tipo de Mascota</option> :
                                         <option
-                                            selected
                                             key={tiposMascotas.find(tipo => tipo.tipo === form.tipo).id}
                                             value={form.tipo}>{form.tipo}</option>
                                 }

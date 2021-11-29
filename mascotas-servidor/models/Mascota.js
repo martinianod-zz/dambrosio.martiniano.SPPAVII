@@ -10,8 +10,7 @@ const mascotaSchema = new Schema({
     edad: {
         type: Number,
         required: true,
-        min: 2,
-        max: 10,
+        min: 0,
     },
     tipo: {
         type: String,
